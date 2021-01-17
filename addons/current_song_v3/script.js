@@ -1,8 +1,6 @@
 var widthUI = document.getElementsByClassName("mainContainer")[0].offsetWidth; //Get width of UI
 
 const sceneSwitcher = new SceneSwitcher();
-sceneSwitcher.setNotPlayingSongScene('Rocksmith (Waiting)');
-sceneSwitcher.setPlayingSongScene('Rocksmith (Song)');
 
 //create dictionary for translating phrase grades into color 
 var gradeCode = {
