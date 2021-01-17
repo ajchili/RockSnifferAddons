@@ -1,5 +1,9 @@
 var widthUI = document.getElementsByClassName("mainContainer")[0].offsetWidth; //Get width of UI
 
+const sceneSwitcher = new SceneSwitcher();
+sceneSwitcher.setNotPlayingSongScene('Rocksmith (Waiting)');
+sceneSwitcher.setPlayingSongScene('Rocksmith (Song)');
+
 //create dictionary for translating phrase grades into color 
 var gradeCode = {
 	NaN : 'white',
@@ -32,6 +36,7 @@ var poller = new SnifferPoller({
 	onSongStarted: function(data) {
 		app.mode = 0;
 		app.visible = true;
+		sceneSwitcher.switchToPlayingSongScene();
 	},
 	
 	onSongChanged: function(data) {
@@ -43,6 +48,7 @@ var poller = new SnifferPoller({
 		app.prevData = app.snifferData;
 		app.mode = 1;
 		generateFeedback();
+		sceneSwitcher.switchToNotPlayingSongScene();
 	}
 });
 
